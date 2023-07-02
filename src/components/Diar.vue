@@ -24,7 +24,8 @@
 import moment from "moment";
 
 import CardDay from "./CardDay.vue";
-import Controls from "./controls.vue";
+import Controls from './Controls.vue';
+
 
 const daysOfWeek = moment()._locale._weekdaysShort;
 
@@ -59,9 +60,6 @@ export default {
 	},
 };
 </script>
-
-
-
 
 
 
@@ -133,3 +131,4 @@ export default {
 	line-height: 1.1rem;
 }
 
+</style>
