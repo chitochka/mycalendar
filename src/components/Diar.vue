@@ -67,9 +67,6 @@ export default {
 
 
 
-
-
-
 <style scoped>
 .konzol>* {
 	font-size: 165%;
