@@ -7,7 +7,7 @@
 		</v-col>
 		<v-col align-self="center">
 			<v-select density="compact" variant="outlined" label="Mesic" return-object @update:modelValue="zmena"
-				:items="itemsMesicu">
+				:items="allMesice" v-model="select">
 			</v-select>
 		</v-col>
 		<v-col align-self="center">
@@ -17,21 +17,22 @@
 	<v-row>		<v-col>		</v-col>	</v-row>
 </template>
 
+
 <script>
 import moment from "moment";
+const allMesice = moment()._locale._months;
 
 export default {
 	props: ['mesic'],
 	emits: ['zmenamesicu'],
-	data: () => ({
-		itemsMesicu: moment()._locale._months,
+	data: (vm) => 	({
+		allMesice: allMesice,
+		select: allMesice[ vm.mesic ]
 	}),
 	methods: {
 		zmena(mesic) {
-			this.$emit('zmenamesicu', this.itemsMesicu.indexOf(mesic))
+			this.$emit('zmenamesicu', this.allMesice.indexOf(mesic))
 		}
 	}
 }
 </script>
-
-<style></style>

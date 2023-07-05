@@ -15,6 +15,11 @@
 				</v-col>
 			</v-row>
 		</v-container>
+		<v-list class="konzol">
+			<v-list-item>
+				today - {{ this.actualMesic }} [ {{ this.today.format('DD MMM  YYYY') }} ]
+			</v-list-item>
+		</v-list>
 	</div>
 </template> 
 
@@ -24,10 +29,9 @@
 import moment from "moment";
 
 import CardDay from "./CardDay.vue";
-import Controls from "./controls.vue";
+import Controls from './Controls.vue';
 
 const daysOfWeek = moment()._locale._weekdaysShort;
-
 
 export default {
 	props: ['smeny'],
@@ -69,7 +73,8 @@ export default {
 <style scoped>
 .konzol>* {
 	font-size: 165%;
-	margin-bottom:15px
+	margin-bottom:15px;
+	font: bold;
 }
 
 .wrap {
@@ -96,7 +101,6 @@ export default {
 	text-align: center;
 }
 
-/* дни */
 .days {
 	margin: 0;
 	padding: 1rem 0;
@@ -104,7 +108,7 @@ export default {
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: left;
+	justify-content: center;
 	align-content: flex-start;
 }
 .myflex{
@@ -119,8 +123,6 @@ export default {
 	border:1px solid rgb(174, 154, 202);
 }
 
-
-
 .days li {
 	padding: 0.5rem;
 	/* border:1px solid grey; */
@@ -133,3 +135,4 @@ export default {
 	line-height: 1.1rem;
 }
 
+</style>
