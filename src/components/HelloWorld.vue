@@ -1,7 +1,6 @@
 <script setup>
 
 
-
 </script>
 
 <template>
@@ -29,7 +28,7 @@
 
     </v-container>
     <p>
-      {{ moment(this.month+"-01-2023") }} <br>{{ this.denNedeli }}
+      {{ moment(this.month+"-01-2023", "MM-DD-YYYY") }} <br>{{ this.denNedeli }}
     </p>
 </div>
 </template>

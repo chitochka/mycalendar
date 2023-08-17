@@ -11,10 +11,11 @@
 
     <v-main>
       <HelloWorld v-show="false"></HelloWorld>
-      <!-- <hr/> -->
+
+  <!--    D I A R    -->
       <Diar :smeny="smeny" class="diar"></Diar>
       <!-- <v-divider :thickness="3" color="success"></v-divider> -->
-      <!-- <br/> -->
+
     </v-main>
   </v-app>
 </template>
@@ -39,8 +40,12 @@ import Diar from './components/Diar.vue';
         {
           "1":"alex",
           "2":"Anna"
-      },
-        {},{},{},
+        },
+        {},{
+          "1":"eшки маalex",
+          "2":"Anna"
+        },
+        {},
         {},{},{}
       ]
     }),

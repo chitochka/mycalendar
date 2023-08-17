@@ -2,7 +2,7 @@
 	<div class="wrap">
 		<v-container style="width: 100%; max-width: 950px; border: 1px solid black" >
 
-			<Controls :mesic="actualMesic" @zmenamesicu="setNewActualMesic"></Controls>
+			<Controls :mesic="actualMesic" @zmenamesicu="setNewActualMesic" @setPrevMesic="setPrevMesic"></Controls>
 
 			<v-row class="myflex">
 				<v-col v-for="day in daysOfWeek" :key="day">  {{ day }}
@@ -11,7 +11,7 @@
 			<v-row class="myflex">
 				<v-col v-for="day in offsetDayIn1Week" :key="day"/> 
 				<v-col v-for="day in daysInMonth" :key="day"> 
-					<CardDay  :day="day" :nocni="smeny[this.actualMesic ][day]"> </CardDay>
+					<CardDay  :day="day" :nocni="smeny[this.actualMesic ][day]"     > </CardDay>
 				</v-col>
 			</v-row>
 		</v-container>
@@ -28,8 +28,8 @@
 <script>
 import moment from "moment";
 
-import CardDay from "./CardDay.vue";
-import Controls from './Controls.vue';
+import CardDay from './CardDay.vue';
+import Controls from './MyControls.vue';
 
 const daysOfWeek = moment()._locale._weekdaysShort;
 
@@ -54,12 +54,18 @@ export default {
 		},
 	},
 	methods:{
+		setPrevMesic  (mesic){
+			this.mesic - 1
+		},
 		setNewActualMesic (cisloMesicu) {
 			this.actualMesic = cisloMesicu
 		}
 	},
 	mounted: function () {
 		window.data = this.$data; window.vv = this; window.mm = window.moment = moment;
+		console.log('\n\n SMENY = \n\n')
+		console.log(this.smeny);
+		
 	},
 };
 </script>
@@ -111,13 +117,18 @@ export default {
 .myflex{
 	display: flex;
 	flex-wrap: wrap;
+	background-color: #aaa;
 }
 
 .myflex >*{
 	display: inline-block;
-	padding: 10px;
+	padding: 5px;
+	min-width:100px;
+	overflow: unset;
+
 	flex: 0 0 calc(100% / 7);
-	border:1px solid rgb(174, 154, 202);
+	/* border:1px solid rgb(174, 154, 202); */
+	box-shadow: 0 0 4px 1px #373;
 }
 
 .days li {
